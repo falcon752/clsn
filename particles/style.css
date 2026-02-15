@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #FFF9E6 0%, #E8F5FF 50%, #FFF0F5 100%);
+    overflow-x: hidden;
+}
+
+/* Particles Container */
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    background-color: transparent;
+}
+
+/* Content Layer */
+.content {
+    position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #4A4A4A;
+    text-align: center;
+    padding: 20px;
+}
+
+.content h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #FF6B6B, #4ECDC4, #FFE66D);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+    text-shadow: none;
+}
+
+.content p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+
+/* MOBILE ONLY: prevent navbar overflow / too-wide header */
+@media (max-width: 991.98px) {
+  /* Stop any accidental horizontal overflow from navbar area */
+  .navbar,
+  .navbar .container,
+  .navbar-collapse {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  /* Make logo shrink nicely on small screens (SVGs can be wide) */
+  .navbar-brand img {
+    max-width: 170px;   /* adjust if you want smaller/larger */
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  /* Ensure the brand and toggler share the row without pushing width */
+  .navbar .container {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* Make collapse content fit the screen and wrap properly */
+  .navbar-collapse {
+    padding-top: 12px;
+  }
+
+  /* Make the CTA button not force overflow */
+  .navbar-collapse .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    white-space: normal; /* allow wrapping if needed */
+  }
+
+  /* Optional: tighten spacing in collapsed menu */
+  .navbar-nav {
+    gap: 0.75rem !important;
+  }
+}

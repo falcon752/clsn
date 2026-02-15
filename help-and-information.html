@@ -1,0 +1,592 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Help and Information</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    :root{
+      --accent:#ff6b6b;
+      --bg:#38bdf8;
+      --text:#0f172a;
+      --muted:#475569;
+      --card:#ffffff;
+      --line: rgba(15, 23, 42, 0.10);
+      --shadow: 0 10px 30px rgba(2, 8, 23, 0.12);
+      --radius: 18px;
+      --max: 1140px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      color:var(--text);
+      background: #f6fbff;
+      line-height:1.55;
+    }
+
+    /* Hero styles from FAQ */
+    .rounded-hero { border-radius: 2rem; }
+    .shadow-soft { box-shadow: 0 18px 40px rgba(15, 23, 42, .10); }
+
+    .hero-wrap{
+      background: linear-gradient(180deg, rgba(56,189,248,.22), rgba(56,189,248,.06) 60%, transparent);
+      padding-top: 80px !important;
+    }
+    .hero-card{
+      background: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      top:-90px; right:-120px;
+      width:360px; height:360px;
+      border-radius:50%;
+      background: rgba(255,255,255,.22);
+    }
+    .hero-card::after{
+      content:"";
+      position:absolute;
+      bottom:-140px; left:-160px;
+      width:460px; height:460px;
+      border-radius:50%;
+      background: rgba(255,255,255,.14);
+    }
+    .hero-content{ position: relative; }
+    .hero-content h1{
+      letter-spacing: -.03em;
+      color: #0b1220;
+    }
+    .hero-content .sub{
+      color: rgba(15,23,42,.78);
+    }
+
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .kicker{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      padding: 8px 12px;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border: 0.5px solid rgba(255,255,255,0.4);
+      border-radius: 999px;
+      color: rgba(15,23,42,0.92);
+      font-weight: 600;
+      font-size: 13px;
+    }
+
+    h1{
+      margin: 16px 0 8px;
+      font-size: clamp(28px, 4vw, 44px);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: black;
+    }
+
+    .sub{
+      margin: 0;
+      font-size: clamp(16px, 2vw, 20px);
+      color: rgba(15,23,42,0.85);
+      font-weight: 600;
+    }
+
+    /* .content{
+      padding: 0 0 64px;
+      margin-top: -70px;
+    } */
+
+    @media (min-width: 768px) {
+      .content {
+        padding: 0 20px 64px;
+      }
+    }
+
+    .grid{
+      display: grid;
+      gap: 18px;
+    }
+
+    .card{
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 1.25rem;
+      box-shadow: 0 12px 26px rgba(15, 23, 42, .08);
+      padding: 22px;
+    }
+
+    .card h2{
+      margin: 0 0 10px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .muted{ color: var(--muted); }
+
+    .callout{
+      border-left: 6px solid var(--accent);
+      background: linear-gradient(0deg, rgba(255,107,107,0.08), rgba(255,107,107,0.08)), #fff;
+      border-radius: 1rem;
+    }
+
+    /* Accordion */
+    details{
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      background:#fff;
+      overflow:hidden;
+    }
+    details + details{ margin-top: 12px; }
+
+    summary{
+      list-style:none;
+      cursor:pointer;
+      padding: 14px 16px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      font-weight: 700;
+    }
+    summary::-webkit-details-marker{ display:none; }
+
+    .chev{
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      display:grid;
+      place-items:center;
+      color: var(--accent);
+      flex: 0 0 auto;
+    }
+    details[open] .chev{
+      background: rgba(255,107,107,0.10);
+      border-color: rgba(255,107,107,0.35);
+      transform: rotate(180deg);
+    }
+
+    .panel{
+      padding: 0 16px 16px;
+      color: var(--text);
+    }
+    ul{ margin: 10px 0 0 18px; }
+    li{ margin: 6px 0; }
+
+    .btnrow{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 14px;
+    }
+    .btn{
+      appearance:none;
+      border:0;
+      background: var(--accent);
+      color:#fff;
+      font-weight: 700;
+      padding: 12px 14px;
+      border-radius: 14px;
+      cursor:pointer;
+    }
+    .btn.secondary{
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid rgba(255,107,107,0.55);
+    }
+
+    .links{
+      display:grid;
+      gap:10px;
+      margin-top: 10px;
+    }
+    .linkcard{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px 14px;
+      border-radius: 1rem;
+      border: 1px solid var(--line);
+      background:#fff;
+      text-decoration:none;
+      color: var(--text);
+    }
+    .linkcard:hover{
+      border-color: rgba(255,107,107,0.45);
+      box-shadow: 0 10px 26px rgba(2, 8, 23, 0.10);
+    }
+    .pill{
+      font-size: 12px;
+      font-weight: 700;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255,107,107,0.12);
+      color: var(--accent);
+      border: 1px solid rgba(255,107,107,0.25);
+    }
+
+    /* Scroll Animations */
+    .scroll-animate {
+      opacity: 0;
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .scroll-fade-in {
+      opacity: 0;
+      transition: opacity 0.8s ease-out;
+    }
+
+    .scroll-fade-in.visible {
+      opacity: 1;
+    }
+
+    .scroll-slide-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .scroll-slide-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .scroll-slide-left {
+      opacity: 0;
+      transform: translateX(-30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .scroll-slide-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .scroll-slide-right {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .scroll-slide-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .scroll-zoom-in {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .scroll-zoom-in.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-animate,
+      .scroll-fade-in,
+      .scroll-slide-up,
+      .scroll-slide-left,
+      .scroll-slide-right,
+      .scroll-zoom-in {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    @media (min-width: 900px){
+      .grid{ grid-template-columns: 1.2fr 0.8fr; }
+      .stack{ grid-column: 1 / -1; }
+    }
+  </style>
+</head>
+<body>
+  <nav
+    class="navbar navbar-expand-lg navbar-light bg-white bg-opacity-75 backdrop-blur shadow-sm border-bottom fixed-top"
+  >
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img
+          src="assets/images/logo-candlelight.svg"
+          alt="Candlelight Logo"
+          height="40"
+          class="me-2"
+        />
+        <!-- <span class="fw-semibold">Candlelight</span> -->
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <div class="d-flex justify-content-end p-4 d-lg-none">
+          <button class="navbar-close-btn" aria-label="Close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+        <ul class="navbar-nav mx-auto gap-3">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">What We Do</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">Donate</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Find Support</a>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="#">Volunteer</a></li>
+        </ul>
+        <a
+          class="btn px-4"
+          href="#"
+          style="
+            background-color: #ff6b6b;
+            color: white;
+            border-color: #ff6b6b;
+          "
+          >Donor Portal</a
+        >
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-wrap py-4 py-md-5">
+    <div class="container">
+      <div class="hero-card rounded-hero shadow-soft p-4 p-md-5 scroll-zoom-in">
+        <div class="hero-content text-center">
+          <div class="kicker mb-3">Help • Parents & Caregivers</div>
+          <h1 class="display-4 fw-bold mb-3 text-uppercase">
+            HELP AND INFORMATION
+          </h1>
+          <p class="lead fw-semibold mb-0 sub">
+            Learn some of the Signs of Autism
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="content">
+    <div class="container grid">
+      <!-- Intro -->
+      <section class="card stack scroll-fade-in">
+        <h2>Overview</h2>
+        <p class="muted">
+          One of the most important things you can do as a parent or caregiver is to learn the early signs of autism
+          and become familiar with the typical developmental milestones that your child should be reaching.
+        </p>
+
+        <div class="card callout" style="box-shadow:none; margin-top:14px;">
+          <strong>Why it matters:</strong>
+          Not all children with autism show all the signs. Many children who don’t have autism show a few.
+          That’s why professional evaluation is crucial.
+        </div>
+      </section>
+
+      <!-- What are the signs -->
+      <section class="card stack scroll-slide-left">
+        <h2>What are the signs of autism?</h2>
+        <p class="muted">
+          The autism diagnosis age and intensity of autism’s early signs vary widely. Some infants show hints in their
+          first months. In others, behaviors become obvious as late as age 2 or 3.
+        </p>
+
+        <div class="card callout" style="box-shadow:none;">
+          If your child exhibits any of the following, ask your pediatrician or family doctor for an evaluation right away:
+        </div>
+
+        <div style="margin-top:14px;">
+          <details>
+            <summary>
+              By 6 months
+              <span class="chev">⌄</span>
+            </summary>
+            <div class="panel">
+              <ul>
+                <li>Few or no big smiles or other warm, joyful and engaging expressions</li>
+                <li>Limited or no eye contact</li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              By 9 months
+              <span class="chev">⌄</span>
+            </summary>
+            <div class="panel">
+              <ul>
+                <li>Little or no back-and-forth sharing of sounds, smiles or other facial expressions</li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              By 12 months
+              <span class="chev">⌄</span>
+            </summary>
+            <div class="panel">
+              <ul>
+                <li>Little or no babbling</li>
+                <li>Little or no back-and-forth gestures such as pointing, showing, reaching or waving</li>
+                <li>Little or no response to name</li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              By 16 months
+              <span class="chev">⌄</span>
+            </summary>
+            <div class="panel">
+              <ul>
+                <li>Very few or no words</li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              By 24 months
+              <span class="chev">⌄</span>
+            </summary>
+            <div class="panel">
+              <ul>
+                <li>Very few or no meaningful, two-word phrases (not including imitating or repeating)</li>
+              </ul>
+            </div>
+          </details>
+
+          <details>
+            <summary>
+              At any age
+              <span class="chev">⌄</span>
+            </summary>
+            <div class="panel">
+              <ul>
+                <li>Loss of previously acquired speech, babbling or social skills</li>
+                <li>Avoidance of eye contact</li>
+                <li>Persistent preference for solitude</li>
+                <li>Difficulty understanding other people’s feelings</li>
+                <li>Delayed language development</li>
+                <li>Persistent repetition of words or phrases (echolalia)</li>
+                <li>Resistance to minor changes in routine or surroundings</li>
+                <li>Restricted interests</li>
+                <li>Repetitive behaviors (flapping, rocking, spinning, etc.)</li>
+                <li>Unusual and intense reactions to sounds, smells, tastes, textures, lights and/or colors</li>
+              </ul>
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- Research -->
+      <aside class="card scroll-slide-right">
+        <h2>Early screening & support</h2>
+        <p class="muted">
+          Recent research confirms that appropriate screening can determine whether a child is at risk for autism as
+          young as one year. While every child develops differently, we also know that early treatment improves outcomes,
+          often dramatically.
+        </p>
+        <p class="muted">
+          Studies show, for example, that early intensive behavioral intervention improves learning, communication and
+          social skills in young children with autism spectrum disorders (ASD).
+        </p>
+        <div class="btnrow">
+          <button class="btn" type="button">Request an evaluation</button>
+          <button class="btn secondary" type="button">Find local resources</button>
+        </div>
+      </aside>
+
+      <!-- Read More -->
+      <section class="card scroll-slide-up">
+        <h2>Read More</h2>
+        <div class="links">
+          <a class="linkcard" href="#">
+            <span>What Are some the Symptoms of Autism?</span>
+            <span class="pill">Open</span>
+          </a>
+          <a class="linkcard" href="#">
+            <span>Sensory Issues</span>
+            <span class="pill">Open</span>
+          </a>
+          <a class="linkcard" href="#">
+            <span>What Is Asperger Syndrome?</span>
+            <span class="pill">Open</span>
+          </a>
+          <a class="linkcard" href="#">
+            <span>WHO Caregiver Skills Training Program</span>
+            <span class="pill">Open</span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    // Optional: open the first accordion by default
+    document.querySelector("details")?.setAttribute("open", "open");
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with scroll animation classes
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll(
+        '.scroll-fade-in, .scroll-slide-up, .scroll-slide-left, .scroll-slide-right, .scroll-zoom-in'
+      );
+      animatedElements.forEach(el => observer.observe(el));
+    });
+  </script>
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  ></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

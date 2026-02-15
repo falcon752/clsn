@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us • Candlelight Foundation</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Google reCAPTCHA v3 -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <style>
+    :root{
+      --accent:#FF6B6B;
+      --hero:#38bdf8;
+    }
+
+    /* Match FAQ look */
+    .rounded-hero { border-radius: 2rem; }
+    .shadow-soft { box-shadow: 0 18px 40px rgba(15, 23, 42, .10); }
+
+    .btn-accent{
+      background: var(--accent);
+      border-color: var(--accent);
+      color:#fff;
+      font-weight: 800;
+    }
+    .btn-accent:hover{ filter: brightness(.97); color:#fff; }
+
+    .hero-wrap{
+      background: linear-gradient(180deg, rgba(56,189,248,.22), rgba(56,189,248,.06) 60%, transparent);
+    }
+    .hero-card{
+      background: var(--hero);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute;
+      top:-90px; right:-120px;
+      width:360px; height:360px;
+      border-radius:50%;
+      background: rgba(255,255,255,.22);
+    }
+    .hero-card::after{
+      content:"";
+      position:absolute;
+      bottom:-140px; left:-160px;
+      width:460px; height:460px;
+      border-radius:50%;
+      background: rgba(255,255,255,.14);
+    }
+    .hero-content{ position: relative; }
+
+    .card-soft{
+      border-radius: 1.25rem;
+      box-shadow: 0 12px 26px rgba(15, 23, 42, .08);
+    }
+
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      padding:.45rem .75rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border: 0.5px solid rgba(255,255,255,0.4);
+      color: rgba(15,23,42,0.92);
+      font-weight: 600;
+      font-size: .85rem;
+    }
+    .link-accent{
+      color: var(--accent);
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .link-accent:hover{ text-decoration: underline; }
+
+    /* Form polish */
+    .form-control, .form-select{
+      border-radius: 14px;
+      padding: .85rem .95rem;
+      font-weight: 650;
+    }
+    .form-control:focus, .form-select:focus{
+      border-color: rgba(255,107,107,.55);
+      box-shadow: 0 0 0 .2rem rgba(255,107,107,.18);
+    }
+
+    .section-title{
+      letter-spacing: -.02em;
+    }
+
+    /* Scroll Animations (same as FAQ) */
+    .scroll-fade-in { opacity: 0; transition: opacity 0.8s ease-out; }
+    .scroll-fade-in.visible { opacity: 1; }
+    .scroll-slide-up { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .scroll-slide-up.visible { opacity: 1; transform: translateY(0); }
+    .scroll-slide-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .scroll-slide-left.visible { opacity: 1; transform: translateX(0); }
+    .scroll-slide-right { opacity: 0; transform: translateX(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .scroll-slide-right.visible { opacity: 1; transform: translateX(0); }
+    .scroll-zoom-in { opacity: 0; transform: scale(0.95); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    .scroll-zoom-in.visible { opacity: 1; transform: scale(1); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .scroll-fade-in,.scroll-slide-up,.scroll-slide-left,.scroll-slide-right,.scroll-zoom-in{
+        opacity: 1; transform:none; transition:none;
+      }
+    }
+
+    /* Map wrapper */
+    .map-wrap{
+      border-radius: 1.25rem;
+      overflow: hidden;
+      border: 1px solid rgba(15, 23, 42, .10);
+      box-shadow: 0 12px 26px rgba(15, 23, 42, .08);
+      min-height: 320px;
+    }
+    .map-iframe{
+      width:100%;
+      height: 360px;
+      border:0;
+      display:block;
+    }
+    @media (max-width: 576px){
+      .map-iframe{ height: 320px; }
+    }
+  </style>
+</head>
+
+<body class="bg-white">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white bg-opacity-75 backdrop-blur shadow-sm border-bottom fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="index.html">
+        <img src="assets/images/logo-candlelight.svg" alt="Candlelight Logo" height="40" class="me-2" />
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+              aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <div class="d-flex justify-content-end p-4 d-lg-none">
+          <button class="navbar-close-btn" aria-label="Close menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
+        </div>
+
+        <ul class="navbar-nav mx-auto gap-3">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">What We Do</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Donate</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Find Support</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Volunteer</a></li>
+        </ul>
+
+        <a class="btn btn-accent px-4" href="#">Donor Portal</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-wrap py-4 py-md-5" style="padding-top: 80px !important;">
+    <div class="container">
+      <div class="hero-card rounded-hero shadow-soft p-4 p-md-5 scroll-zoom-in">
+        <div class="hero-content text-center">
+          <div class="pill mb-3">We’d love to hear from you</div>
+          <h1 class="display-4 fw-bold mb-3" style="letter-spacing:-.03em; color:#0b1220;">
+            CONTACT US
+          </h1>
+
+          <p class="lead fw-semibold mb-0" style="color: rgba(15,23,42,.78); max-width: 860px; margin: 0 auto;">
+            Email us at <a class="link-accent" href="mailto:info@candlelightspecialneeds.org">info@candlelightspecialneeds.org</a>
+            or call <a class="link-accent" href="tel:+2347045320659">+234 704 532 0659</a>. We respond as quickly as possible.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <main class="container pb-5">
+    <div class="row g-4 align-items-start">
+
+      <!-- LEFT: CONTACT FORM -->
+      <div class="col-lg-8">
+        <div class="card card-soft border scroll-slide-left">
+          <div class="card-body p-4 p-md-5">
+            <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+              <h2 class="h4 fw-bold mb-0 section-title">Send us a Message</h2>
+              <span class="text-secondary fw-semibold">All fields are required <span class="text-danger">*</span></span>
+            </div>
+
+            <form id="contactForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label fw-bold">Name <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control" name="name" placeholder="Your full name" required>
+                  <div class="invalid-feedback">Please enter your name.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label fw-bold">Email <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control" name="email" placeholder="you@email.com" required>
+                  <div class="invalid-feedback">Please enter a valid email.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label fw-bold">Location (State) <span class="text-danger">*</span></label>
+                  <select class="form-select" name="state" required>
+                    <option value="" selected disabled>Select your state</option>
+                    <option>Abia</option><option>Adamawa</option><option>Akwa Ibom</option><option>Anambra</option>
+                    <option>Bauchi</option><option>Bayelsa</option><option>Benue</option><option>Borno</option>
+                    <option>Cross River</option><option>Delta</option><option>Ebonyi</option><option>Edo</option>
+                    <option>Ekiti</option><option>Enugu</option><option>Gombe</option><option>Imo</option>
+                    <option>Jigawa</option><option>Kaduna</option><option>Kano</option><option>Katsina</option>
+                    <option>Kebbi</option><option>Kogi</option><option>Kwara</option><option>Lagos</option>
+                    <option>Nasarawa</option><option>Niger</option><option>Ogun</option><option>Ondo</option>
+                    <option>Osun</option><option>Oyo</option><option>Plateau</option><option>Rivers</option>
+                    <option>Sokoto</option><option>Taraba</option><option>Yobe</option><option>Zamfara</option>
+                    <option>FCT - Abuja</option>
+                  </select>
+                  <div class="invalid-feedback">Please select your state.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label fw-bold">Interest <span class="text-danger">*</span></label>
+                  <select class="form-select" name="interest" required>
+                    <option value="" selected disabled>What are you interested in?</option>
+                    <option>Parent & Caregiver Training</option>
+                    <option>Mental Health Counselling</option>
+                    <option>Health & Wellness Coaching</option>
+                    <option>Specialized Therapy</option>
+                    <option>Specialized Therapy Education</option>
+                    <option>Others</option>
+                  </select>
+                  <div class="invalid-feedback">Please select an interest.</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label class="form-label fw-bold">Phone <span class="text-danger">*</span></label>
+                  <input type="tel" class="form-control" name="phone" placeholder="+234..." required>
+                  <div class="invalid-feedback">Please enter your phone number.</div>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label fw-bold">Message <span class="text-danger">*</span></label>
+                  <textarea class="form-control" name="message" rows="5" placeholder="Tell us how we can help…" required></textarea>
+                  <div class="invalid-feedback">Please enter your message.</div>
+                </div>
+
+                <!-- Google reCAPTCHA v3 -->
+                <div class="col-12">
+                  <div class="g-recaptcha" data-sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" data-action="submit"></div>
+                  <div class="invalid-feedback d-block" style="display:none;" id="captchaError">Please complete the CAPTCHA verification.</div>
+                </div>
+
+                <div class="col-12 d-flex flex-wrap gap-2 align-items-center justify-content-between mt-2">
+                  <small class="text-secondary fw-semibold">
+                    By submitting, you agree to be contacted about your request.
+                  </small>
+                  <button class="btn btn-accent btn-lg px-4" type="submit">Submit Message</button>
+                </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: CONTACT DETAILS + CTA -->
+      <div class="col-lg-4">
+        <h2 class="h4 fw-bold mb-3 scroll-fade-in">Contact Details</h2>
+
+        <div class="d-flex flex-column gap-3">
+          <div class="card card-soft border scroll-slide-right">
+            <div class="card-body">
+              <span class="pill">Email</span>
+              <p class="text-secondary fw-semibold mt-3 mb-2">
+                <a class="link-accent" href="mailto:info@candlelightspecialneeds.org">info@candlelightspecialneeds.org</a>
+              </p>
+              <small class="text-secondary fw-semibold">Best for documents and detailed requests.</small>
+            </div>
+          </div>
+
+          <div class="card card-soft border scroll-slide-right">
+            <div class="card-body">
+              <span class="pill">Mobile</span>
+              <p class="text-secondary fw-semibold mt-3 mb-2">
+                <a class="link-accent" href="tel:+2347045320659">+234 704 532 0659</a>
+              </p>
+              <small class="text-secondary fw-semibold">Call or WhatsApp for urgent support.</small>
+            </div>
+          </div>
+
+          <div class="card card-soft border scroll-slide-right">
+            <div class="card-body">
+              <h3 class="h6 fw-bold mb-2">Counseling Service</h3>
+              <p class="text-secondary fw-semibold mb-3">
+                Interested in our counseling services? Click the button below to enroll by filling out our quick online form!
+              </p>
+              <a class="btn btn-accent w-100" href="#" role="button">ENROLL NOW</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- VISIT US / MAP -->
+    <section class="mt-5">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+        <h2 class="h4 fw-bold mb-0 scroll-fade-in">Visit Us</h2>
+        <span class="text-secondary fw-semibold scroll-fade-in">Find us on Google Maps</span>
+      </div>
+
+      <div class="map-wrap scroll-slide-up">
+        <!-- Replace the src with your real Google Maps embed link -->
+        <iframe
+          class="map-iframe"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Lagos%20Nigeria&output=embed"
+          title="Google Map">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Bootstrap validation with Google reCAPTCHA v3
+    const form = document.getElementById('contactForm');
+    const captchaError = document.getElementById('captchaError');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const isFormValid = form.checkValidity();
+      if (!isFormValid) {
+        form.classList.add('was-validated');
+        return;
+      }
+
+      // Get reCAPTCHA token
+      try {
+        const token = await grecaptcha.execute('6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI', { action: 'submit' });
+        // Add token to form as hidden field
+        const tokenInput = document.createElement('input');
+        tokenInput.type = 'hidden';
+        tokenInput.name = 'recaptcha_token';
+        tokenInput.value = token;
+        form.appendChild(tokenInput);
+        captchaError.style.display = 'none';
+        // Form can now be submitted to backend for verification
+        // For now, just show success (backend should verify the token)
+        console.log('reCAPTCHA token obtained:', token);
+      } catch (error) {
+        captchaError.style.display = 'block';
+        console.error('reCAPTCHA error:', error);
+      }
+    });
+  </script>
+
+  <script>
+    // Scroll animations (same behavior as FAQ)
+    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, observerOptions);
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const animatedElements = document.querySelectorAll(
+        '.scroll-fade-in, .scroll-slide-up, .scroll-slide-left, .scroll-slide-right, .scroll-zoom-in'
+      );
+      animatedElements.forEach(el => observer.observe(el));
+    });
+  </script>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
