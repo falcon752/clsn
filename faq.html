@@ -71,11 +71,11 @@
       background: rgba(255,107,107,.12);
       border: 1px solid rgba(255,107,107,.25);
       color: var(--accent);
-      font-weight: 700;
+      font-weight: 600;
     }
     .link-accent{
       color: var(--accent);
-      font-weight: 700;
+      font-weight: 600;
       text-decoration: none;
     }
     .link-accent:hover{ text-decoration: underline; }
@@ -229,10 +229,10 @@
     <div class="container">
       <div class="hero-card rounded-hero shadow-soft p-4 p-md-5 scroll-zoom-in">
         <div class="hero-content text-center">
-          <h1 class="display-4 fw-bold mb-3" style="letter-spacing:-.03em; color:#0b1220;">
+          <h1 class="display-4 fw-bold mb-3" style="letter-spacing:-.03em; color:#0b1220; font-size: clamp(28px, 4vw, 48px);">
             FREQUENTLY ASKED QUESTIONS
           </h1>
-          <p class="lead fw-semibold mb-4" style="color: rgba(15,23,42,.78);">
+          <p class="lead mb-4" style="color: rgba(15,23,42,.78); font-size: clamp(16px, 2vw, 20px);">
             Search our FAQs to find answers about therapies, programs, support resources, and enrollment.
           </p>
 
@@ -244,9 +244,9 @@
                   <path d="m21 21-4.35-4.35"></path>
                 </svg>
               </span>
-              <input id="faqSearch" type="search" class="form-control border-0 bg-transparent fw-semibold"
+              <input id="faqSearch" type="search" class="form-control border-0 bg-transparent"
                      placeholder="FAQs, Videos, Documentation and Forum Posts" aria-label="Search FAQs">
-              <button class="btn btn-accent fw-bold px-4" type="button">Search</button>
+              <button class="btn btn-accent px-4" type="button">Search</button>
             </div>
           </div>
 
@@ -260,7 +260,7 @@
     <div class="row g-4">
       <!-- LEFT: FAQs -->
       <div class="col-lg-8">
-        <h2 class="h4 fw-bold mb-3 scroll-fade-in">General</h2>
+        <h2 class="h4 mb-3 scroll-fade-in">General</h2>
 
         <div class="card card-soft border scroll-slide-left">
           <div class="card-body p-0">
@@ -269,12 +269,12 @@
               <!-- 1 -->
               <div class="accordion-item border-0 border-top">
                 <h2 class="accordion-header" id="q1">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#a1" aria-expanded="false" aria-controls="a1">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a1" aria-expanded="false" aria-controls="a1">
                     WHAT SPECIALIZED THERAPIES DO YOU OFFER FOR CHILDREN AT THE CANDLELIGHT FOUNDATION
                   </button>
                 </h2>
                 <div id="a1" class="accordion-collapse collapse" aria-labelledby="q1" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body text-secondary fw-semibold">
+                  <div class="accordion-body text-secondary">
                     We offer a range of specialized therapies including behavioral therapy, speech therapy, and cognitive therapy.
                     These therapies are designed to help children with Autism, ADHD, and speech dyslexia improve their social skills,
                     communication, and cognitive functions.
@@ -285,12 +285,12 @@
               <!-- 2 -->
               <div class="accordion-item border-0 border-top">
                 <h2 class="accordion-header" id="q2">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#a2" aria-expanded="false" aria-controls="a2">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2" aria-expanded="false" aria-controls="a2">
                     WHAT DOES YOUR SPECIALIZED PROGRAM INCLUDE
                   </button>
                 </h2>
                 <div id="a2" class="accordion-collapse collapse" aria-labelledby="q2" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body text-secondary fw-semibold">
+                  <div class="accordion-body text-secondary">
                     Our specialized educational program includes individualized learning plans tailored to each child's unique needs
                     and abilities. We focus on developing both academic and life skills, using adaptive learning materials and techniques.
                   </div>
@@ -300,12 +300,12 @@
               <!-- 3 -->
               <div class="accordion-item border-0 border-top">
                 <h2 class="accordion-header" id="q3">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#a3" aria-expanded="false" aria-controls="a3">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3" aria-expanded="false" aria-controls="a3">
                     MENTAL HEALTH COUNSELLING
                   </button>
                 </h2>
                 <div id="a3" class="accordion-collapse collapse" aria-labelledby="q3" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body text-secondary fw-semibold">
+                  <div class="accordion-body text-secondary">
                     We provide a range of supportive resources and services, including assistive technology, social and emotional support,
                     and physical and occupational therapy. These resources are designed to support the overall development of children with
                     Autism, ADHD, and speech dyslexia.
@@ -316,12 +316,12 @@
               <!-- 4 -->
               <div class="accordion-item border-0 border-top">
                 <h2 class="accordion-header" id="q4">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#a4" aria-expanded="false" aria-controls="a4">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a4" aria-expanded="false" aria-controls="a4">
                     DO YOU OFFER IN-HOME SERVICES
                   </button>
                 </h2>
                 <div id="a4" class="accordion-collapse collapse" aria-labelledby="q4" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body text-secondary fw-semibold">
+                  <div class="accordion-body text-secondary">
                     Yes, we do offer in-home services. Our team of professionals can provide therapies, educational programs, and supportive
                     resources in the comfort of your home. This allows us to create a familiar and comfortable environment for the child,
                     which can enhance the effectiveness of our services.
@@ -332,12 +332,12 @@
               <!-- 5 -->
               <div class="accordion-item border-0 border-top">
                 <h2 class="accordion-header" id="q5">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#a5" aria-expanded="false" aria-controls="a5">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a5" aria-expanded="false" aria-controls="a5">
                     WHAT TRAINING DO YOU OFFER FOR PARENTS AND CAREGIVERS?
                   </button>
                 </h2>
                 <div id="a5" class="accordion-collapse collapse" aria-labelledby="q5" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body text-secondary fw-semibold">
+                  <div class="accordion-body text-secondary">
                     We offer comprehensive training programs for parents and caregivers. This includes workshops on understanding specific
                     exceptionalities like Autism, ADHD, and Dyslexia, strategies for effective communication with children with special needs,
                     guidance on creating a supportive home environment, and emotional and psychological support.
@@ -348,12 +348,12 @@
               <!-- 6 -->
               <div class="accordion-item border-0 border-top">
                 <h2 class="accordion-header" id="q6">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#a6" aria-expanded="false" aria-controls="a6">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a6" aria-expanded="false" aria-controls="a6">
                     HOW CAN I ENROLL MY CHILD IN THE CANDLELIGHT FOUNDATION'S PROGRAMS?
                   </button>
                 </h2>
                 <div id="a6" class="accordion-collapse collapse" aria-labelledby="q6" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body text-secondary fw-semibold">
+                  <div class="accordion-body text-secondary">
                     You can contact us directly through our website or by phone to discuss enrollment. Our team will guide you through the
                     process, which includes an initial assessment to understand your child's unique needs and how we can best support them.
                   </div>
@@ -363,12 +363,12 @@
               <!-- 7 -->
               <div class="accordion-item border-0 border-top">
                 <h2 class="accordion-header" id="q7">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#a7" aria-expanded="false" aria-controls="a7">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a7" aria-expanded="false" aria-controls="a7">
                     WHAT AGE GROUP DO YOU CATER TO AT THE SPECIAL HEARTS FOUNDATION?
                   </button>
                 </h2>
                 <div id="a7" class="accordion-collapse collapse" aria-labelledby="q7" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body text-secondary fw-semibold">
+                  <div class="accordion-body text-secondary">
                     We cater to children of all ages, from babies and toddlers to adolescents. The exact age range can vary depending on the
                     specific program or service. Please contact us directly for more information.
                   </div>
@@ -378,12 +378,12 @@
               <!-- 8 -->
               <div class="accordion-item border-0 border-top">
                 <h2 class="accordion-header" id="q8">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#a8" aria-expanded="false" aria-controls="a8">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a8" aria-expanded="false" aria-controls="a8">
                     HOW ARE YOUR PROGRAMS ADAPTED TO EACH CHILD'S UNIQUE NEEDS?
                   </button>
                 </h2>
                 <div id="a8" class="accordion-collapse collapse" aria-labelledby="q8" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body text-secondary fw-semibold">
+                  <div class="accordion-body text-secondary">
                     Our team of professionals conducts a thorough assessment of each child to understand their strengths, areas of difficulty,
                     and personal interests. Based on this assessment, we develop an individualized plan that includes specialized therapies, an
                     educational program, and supportive resources tailored to the child's unique needs.
@@ -394,12 +394,12 @@
               <!-- 9 -->
               <div class="accordion-item border-0 border-top">
                 <h2 class="accordion-header" id="q9">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#a9" aria-expanded="false" aria-controls="a9">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a9" aria-expanded="false" aria-controls="a9">
                     DO YOU PROVIDE ANY ONLINE OR REMOTE SERVICES?
                   </button>
                 </h2>
                 <div id="a9" class="accordion-collapse collapse" aria-labelledby="q9" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body text-secondary fw-semibold">
+                  <div class="accordion-body text-secondary">
                     Yes, we offer some services remotely to ensure we can support children and their families regardless of their location or
                     circumstances. This includes online therapy sessions, virtual parent and caregiver training, and digital resources. Please
                     contact us for more information about our online services.
@@ -410,12 +410,12 @@
               <!-- 10 -->
               <div class="accordion-item border-0 border-top">
                 <h2 class="accordion-header" id="q10">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#a10" aria-expanded="false" aria-controls="a10">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a10" aria-expanded="false" aria-controls="a10">
                     WHAT MEASURES DO YOU TAKE TO ENSURE THE SAFETY AND WELL-BEING OF THE CHILDREN IN YOUR CARE?
                   </button>
                 </h2>
                 <div id="a10" class="accordion-collapse collapse" aria-labelledby="q10" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body text-secondary fw-semibold">
+                  <div class="accordion-body text-secondary">
                     The safety and well-being of the children in our care is our top priority. We have stringent policies and procedures in place
                     to ensure a safe and nurturing environment. This includes thorough staff training, regular safety audits, and a strong focus
                     on respect and inclusivity.
@@ -426,12 +426,12 @@
               <!-- 11 -->
               <div class="accordion-item border-0 border-top">
                 <h2 class="accordion-header" id="q11">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#a11" aria-expanded="false" aria-controls="a11">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a11" aria-expanded="false" aria-controls="a11">
                     HOW CAN I SUPPORT THE WORK OF THE CANDLELIGHT FOUNDATION?
                   </button>
                 </h2>
                 <div id="a11" class="accordion-collapse collapse" aria-labelledby="q11" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body text-secondary fw-semibold">
+                  <div class="accordion-body text-secondary">
                     We welcome support from individuals and organizations in various forms, including donations, volunteering, and partnerships.
                     Please visit our website or contact us directly to learn more about how you can support our work.
                   </div>
@@ -441,12 +441,12 @@
               <!-- 12 -->
               <div class="accordion-item border-0 border-top border-bottom">
                 <h2 class="accordion-header" id="q12">
-                  <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#a12" aria-expanded="false" aria-controls="a12">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a12" aria-expanded="false" aria-controls="a12">
                     ARE YOUR SERVICES FREE OF COST?
                   </button>
                 </h2>
                 <div id="a12" class="accordion-collapse collapse" aria-labelledby="q12" data-bs-parent="#faqAccordion">
-                  <div class="accordion-body text-secondary fw-semibold">
+                  <div class="accordion-body text-secondary">
                     Yes, all our services including specialized therapies, educational programs, supportive resources, and parent and caregiver
                     training are offered at no cost, thanks to our generous donors and sponsors. We believe that every child deserves access to
                     the support they need, regardless of their financial situation.
@@ -458,20 +458,20 @@
           </div>
         </div>
 
-        <div class="mt-3 p-3 bg-light border rounded-4 text-secondary fw-semibold">
+        <div class="mt-3 p-3 bg-light border rounded-4 text-secondary">
           Tip: use the search bar to filter questions (try “in-home” or “enroll”).
         </div>
       </div>
 
       <!-- RIGHT: QUICK LINKS -->
       <div class="col-lg-4">
-        <h2 class="h4 fw-bold mb-3 scroll-fade-in">Quick Links</h2>
+        <h2 class="h4 mb-3 scroll-fade-in">Quick Links</h2>
 
         <div class="d-flex flex-column gap-3">
           <div class="card card-soft border scroll-slide-right">
             <div class="card-body">
               <span class="pill">Join the Community</span>
-              <p class="text-secondary fw-semibold mt-3 mb-3">
+              <p class="text-secondary mt-3 mb-3">
                 Ask questions, share experiences, and get support from families and professionals.
               </p>
               <a class="link-accent" href="#">Visit Community →</a>
@@ -480,8 +480,8 @@
 
           <div class="card card-soft border scroll-slide-right">
             <div class="card-body">
-              <h3 class="h6 fw-bold mb-2">Read Documentation & Guides</h3>
-              <p class="text-secondary fw-semibold mb-3">
+              <h3 class="h6 mb-2">Read Documentation & Guides</h3>
+              <p class="text-secondary mb-3">
                 Learn about our programs, therapies, and how to access support.
               </p>
               <a class="link-accent" href="#">Explore Guides →</a>
@@ -490,8 +490,8 @@
 
           <div class="card card-soft border scroll-slide-right">
             <div class="card-body">
-              <h3 class="h6 fw-bold mb-2">Contact Support</h3>
-              <p class="text-secondary fw-semibold mb-3">
+              <h3 class="h6 mb-2">Contact Support</h3>
+              <p class="text-secondary mb-3">
                 Need help with enrollment or services? Reach out and we’ll respond as soon as possible.
               </p>
               <a class="link-accent" href="#">Contact Us →</a>
@@ -500,8 +500,8 @@
 
           <div class="card card-soft border">
             <div class="card-body">
-              <h3 class="h6 fw-bold mb-2">Support Our Work</h3>
-              <p class="text-secondary fw-semibold mb-3">
+              <h3 class="h6 mb-2">Support Our Work</h3>
+              <p class="text-secondary mb-3">
                 Donate, volunteer, or partner with us to expand support for children and families.
               </p>
               <a class="link-accent" href="#">Get Involved →</a>
@@ -565,6 +565,154 @@
       animatedElements.forEach(el => observer.observe(el));
     });
   </script>
+
+  <footer class="main-footer">
+    <div class="container py-5">
+      <div class="row gy-4">
+        <!-- Column 1: Contact -->
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-title">Contact Us</h5>
+          <p class="footer-text">
+            info@candlelightspecialneeds.org<br />
+            8B Fola Osibo Rd, Lekki Phase 1, Lagos, Nigeria.<br />
+            Tel: +234 704 532 0659
+          </p>
+          <p class="footer-text mt-3">
+            1603 Capitol Ave Ste 415 #187232, Cheyenne, WY 82001, USA.<br />
+            Tel: +1 307 220 9397
+          </p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-title">Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="#">What We Do</a></li>
+            <li><a href="#">Global Initiatives</a></li>
+            <li><a href="#">What is Autism?</a></li>
+            <li><a href="#">What is ADHD?</a></li>
+            <li><a href="#">What is Dyslexia?</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Donate</a></li>
+            <li><a href="#">Volunteer</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Newsletter -->
+        <div class="col-lg-4">
+          <h5 class="footer-title">Stay Connected</h5>
+          <p class="footer-text">
+            To ensure that you receive all the latest updates and events from our
+            organization, subscribe to our mailing list.
+          </p>
+
+          <form class="newsletter-form mt-3">
+            <div class="d-flex gap-2">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Enter your email"
+                required
+              />
+              <button type="submit" class="btn btn-danger">
+                Subscribe
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Legal Disclaimer Bar -->
+    <div class="legal-footer-bar">
+      <div class="container">
+        <p class="legal-footer-text">
+          Candlelight Foundation for Children With Special Needs, Inc. is a
+          registered nonprofit organization recognized as tax-exempt by the United
+          States Internal Revenue Service under Section 501(c)(3) of the Internal
+          Revenue Code (EIN: 33-2403724). The Foundation is also a legally registered
+          nonprofit organization in Nigeria and operates programs supporting
+          children with special needs and their families in both the United States
+          and Nigeria.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .main-footer {
+      background: #ffffff;
+      color: #111;
+      border-top: 1px solid #e6e6e6;
+    }
+
+    .footer-title {
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #111;
+    }
+
+    .footer-text {
+      color: #444;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      columns: 2;
+    }
+
+    .footer-links li {
+      margin-bottom: 8px;
+    }
+
+    .footer-links a {
+      color: #444;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: #ff6b6b;
+    }
+
+    .newsletter-form input {
+      background: #fff;
+      border: 1px solid #ccc;
+      color: #111;
+    }
+
+    .newsletter-form input::placeholder {
+      color: #888;
+    }
+
+    /* Legal bar */
+    .legal-footer-bar {
+      border-top: 1px solid #e6e6e6;
+      background: #fafafa;
+      padding: 12px 0;
+    }
+
+    .legal-footer-text {
+      margin: 0;
+      font-size: 0.75rem;
+      line-height: 1.5;
+      color: #555;
+      text-align: center;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+
   <script src="js/main.js"></script>
 </body>
 </html>

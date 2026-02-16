@@ -13,6 +13,10 @@
   <!-- Google reCAPTCHA v3 -->
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
+  <!-- SweetAlert2 -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
   <style>
     :root{
       --accent:#FF6B6B;
@@ -27,7 +31,7 @@
       background: var(--accent);
       border-color: var(--accent);
       color:#fff;
-      font-weight: 800;
+      font-weight: 600;
     }
     .btn-accent:hover{ filter: brightness(.97); color:#fff; }
 
@@ -73,12 +77,12 @@
       -webkit-backdrop-filter: saturate(180%) blur(20px);
       border: 0.5px solid rgba(255,255,255,0.4);
       color: rgba(15,23,42,0.92);
-      font-weight: 600;
+      font-weight: 500;
       font-size: .85rem;
     }
     .link-accent{
       color: var(--accent);
-      font-weight: 800;
+      font-weight: 600;
       text-decoration: none;
     }
     .link-accent:hover{ text-decoration: underline; }
@@ -161,15 +165,31 @@
         </div>
 
         <ul class="navbar-nav mx-auto gap-3">
-          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">What We Do</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">What We Do</a>
+          </li>
           <li class="nav-item"><a class="nav-link" href="#">Donate</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Find Support</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Find Support</a>
+          </li>
           <li class="nav-item"><a class="nav-link" href="#">Volunteer</a></li>
         </ul>
-
-        <a class="btn btn-accent px-4" href="#">Donor Portal</a>
+        <a
+          class="btn px-4"
+          href="#"
+          style="
+            background-color: #ff6b6b;
+            color: white;
+            border-color: #ff6b6b;
+          "
+          >Donor Portal</a
+        >
       </div>
     </div>
   </nav>
@@ -180,13 +200,13 @@
       <div class="hero-card rounded-hero shadow-soft p-4 p-md-5 scroll-zoom-in">
         <div class="hero-content text-center">
           <div class="pill mb-3">We’d love to hear from you</div>
-          <h1 class="display-4 fw-bold mb-3" style="letter-spacing:-.03em; color:#0b1220;">
+          <h1 class="display-4 fw-bold mb-3" style="letter-spacing:-.03em; color:#0b1220; font-size: clamp(28px, 4vw, 48px);">
             CONTACT US
           </h1>
 
-          <p class="lead fw-semibold mb-0" style="color: rgba(15,23,42,.78); max-width: 860px; margin: 0 auto;">
-            Email us at <a class="link-accent" href="mailto:info@candlelightspecialneeds.org">info@candlelightspecialneeds.org</a>
-            or call <a class="link-accent" href="tel:+2347045320659">+234 704 532 0659</a>. We respond as quickly as possible.
+          <p class="lead mb-0" style="color: rgba(15,23,42,.78); max-width: 860px; margin: 0 auto; font-size: clamp(14px, 2vw, 18px);">
+            Email us at <a class="link-accent" href="mailto:info@candlelightspecialneeds.org" style="color: #000; font-weight: 600; text-decoration: none;">info@candlelightspecialneeds.org</a>
+            or call <a class="link-accent" href="tel:+2347045320659" style="color: #000; font-weight: 600; text-decoration: none;">+234 704 532 0659</a>. We respond as quickly as possible.
           </p>
         </div>
       </div>
@@ -202,26 +222,26 @@
         <div class="card card-soft border scroll-slide-left">
           <div class="card-body p-4 p-md-5">
             <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
-              <h2 class="h4 fw-bold mb-0 section-title">Send us a Message</h2>
-              <span class="text-secondary fw-semibold">All fields are required <span class="text-danger">*</span></span>
+              <h2 class="h4 mb-0 section-title">Send us a Message</h2>
+              <span class="text-secondary">All fields are required <span class="text-danger">*</span></span>
             </div>
 
             <form id="contactForm" novalidate>
               <div class="row g-3">
-                <div class="col-md-6">
-                  <label class="form-label fw-bold">Name <span class="text-danger">*</span></label>
+                <div class="col-md-6 scroll-fade-in">
+                  <label class="form-label">Name <span class="text-danger">*</span></label>
                   <input type="text" class="form-control" name="name" placeholder="Your full name" required>
                   <div class="invalid-feedback">Please enter your name.</div>
                 </div>
 
-                <div class="col-md-6">
-                  <label class="form-label fw-bold">Email <span class="text-danger">*</span></label>
+                <div class="col-md-6 scroll-fade-in">
+                  <label class="form-label">Email <span class="text-danger">*</span></label>
                   <input type="email" class="form-control" name="email" placeholder="you@email.com" required>
                   <div class="invalid-feedback">Please enter a valid email.</div>
                 </div>
 
-                <div class="col-md-6">
-                  <label class="form-label fw-bold">Location (State) <span class="text-danger">*</span></label>
+                <div class="col-md-6 scroll-fade-in">
+                  <label class="form-label">Location (State) <span class="text-danger">*</span></label>
                   <select class="form-select" name="state" required>
                     <option value="" selected disabled>Select your state</option>
                     <option>Abia</option><option>Adamawa</option><option>Akwa Ibom</option><option>Anambra</option>
@@ -238,8 +258,8 @@
                   <div class="invalid-feedback">Please select your state.</div>
                 </div>
 
-                <div class="col-md-6">
-                  <label class="form-label fw-bold">Interest <span class="text-danger">*</span></label>
+                <div class="col-md-6 scroll-fade-in">
+                  <label class="form-label">Interest <span class="text-danger">*</span></label>
                   <select class="form-select" name="interest" required>
                     <option value="" selected disabled>What are you interested in?</option>
                     <option>Parent & Caregiver Training</option>
@@ -252,14 +272,14 @@
                   <div class="invalid-feedback">Please select an interest.</div>
                 </div>
 
-                <div class="col-md-6">
-                  <label class="form-label fw-bold">Phone <span class="text-danger">*</span></label>
+                <div class="col-md-6 scroll-fade-in">
+                  <label class="form-label">Phone <span class="text-danger">*</span></label>
                   <input type="tel" class="form-control" name="phone" placeholder="+234..." required>
                   <div class="invalid-feedback">Please enter your phone number.</div>
                 </div>
 
-                <div class="col-12">
-                  <label class="form-label fw-bold">Message <span class="text-danger">*</span></label>
+                <div class="col-12 scroll-fade-in">
+                  <label class="form-label">Message <span class="text-danger">*</span></label>
                   <textarea class="form-control" name="message" rows="5" placeholder="Tell us how we can help…" required></textarea>
                   <div class="invalid-feedback">Please enter your message.</div>
                 </div>
@@ -271,7 +291,7 @@
                 </div>
 
                 <div class="col-12 d-flex flex-wrap gap-2 align-items-center justify-content-between mt-2">
-                  <small class="text-secondary fw-semibold">
+                  <small class="text-secondary">
                     By submitting, you agree to be contacted about your request.
                   </small>
                   <button class="btn btn-accent btn-lg px-4" type="submit">Submit Message</button>
@@ -285,33 +305,33 @@
 
       <!-- RIGHT: CONTACT DETAILS + CTA -->
       <div class="col-lg-4">
-        <h2 class="h4 fw-bold mb-3 scroll-fade-in">Contact Details</h2>
+        <h2 class="h4 mb-3 scroll-fade-in">Contact Details</h2>
 
         <div class="d-flex flex-column gap-3">
           <div class="card card-soft border scroll-slide-right">
             <div class="card-body">
               <span class="pill">Email</span>
-              <p class="text-secondary fw-semibold mt-3 mb-2">
+              <p class="text-secondary mt-3 mb-2">
                 <a class="link-accent" href="mailto:info@candlelightspecialneeds.org">info@candlelightspecialneeds.org</a>
               </p>
-              <small class="text-secondary fw-semibold">Best for documents and detailed requests.</small>
+              <small class="text-secondary">Best for documents and detailed requests.</small>
             </div>
           </div>
 
           <div class="card card-soft border scroll-slide-right">
             <div class="card-body">
               <span class="pill">Mobile</span>
-              <p class="text-secondary fw-semibold mt-3 mb-2">
+              <p class="text-secondary mt-3 mb-2">
                 <a class="link-accent" href="tel:+2347045320659">+234 704 532 0659</a>
               </p>
-              <small class="text-secondary fw-semibold">Call or WhatsApp for urgent support.</small>
+              <small class="text-secondary">Call or WhatsApp for urgent support.</small>
             </div>
           </div>
 
           <div class="card card-soft border scroll-slide-right">
             <div class="card-body">
-              <h3 class="h6 fw-bold mb-2">Counseling Service</h3>
-              <p class="text-secondary fw-semibold mb-3">
+              <h3 class="h6 mb-2">Counseling Service</h3>
+              <p class="text-secondary mb-3">
                 Interested in our counseling services? Click the button below to enroll by filling out our quick online form!
               </p>
               <a class="btn btn-accent w-100" href="#" role="button">ENROLL NOW</a>
@@ -325,8 +345,8 @@
     <!-- VISIT US / MAP -->
     <section class="mt-5">
       <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
-        <h2 class="h4 fw-bold mb-0 scroll-fade-in">Visit Us</h2>
-        <span class="text-secondary fw-semibold scroll-fade-in">Find us on Google Maps</span>
+        <h2 class="h4 mb-0 scroll-fade-in">Visit Us</h2>
+        <span class="text-secondary scroll-fade-in">Find us on Google Maps</span>
       </div>
 
       <div class="map-wrap scroll-slide-up">
@@ -370,22 +390,44 @@
         tokenInput.value = token;
         form.appendChild(tokenInput);
         captchaError.style.display = 'none';
-        // Form can now be submitted to backend for verification
-        // For now, just show success (backend should verify the token)
-        console.log('reCAPTCHA token obtained:', token);
+        
+        // Show success alert with blue accent color
+        Swal.fire({
+          icon: 'success',
+          title: 'Message Sent!',
+          html: 'Thank you for reaching out. We\'ll get back to you as soon as possible.',
+          confirmButtonColor: '#38bdf8',
+          didClose: () => {
+            // Reset form after success
+            form.reset();
+            form.classList.remove('was-validated');
+          }
+        });
       } catch (error) {
         captchaError.style.display = 'block';
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops!',
+          text: 'Something went wrong. Please try again.',
+          confirmButtonColor: '#38bdf8'
+        });
         console.error('reCAPTCHA error:', error);
       }
     });
   </script>
 
   <script>
-    // Scroll animations (same behavior as FAQ)
-    const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+    // Enhanced scroll animations with on-load and bi-directional scroll support
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -80px 0px'
+    };
+
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
       });
     }, observerOptions);
 
@@ -393,9 +435,178 @@
       const animatedElements = document.querySelectorAll(
         '.scroll-fade-in, .scroll-slide-up, .scroll-slide-left, .scroll-slide-right, .scroll-zoom-in'
       );
-      animatedElements.forEach(el => observer.observe(el));
+      
+      // Observe all animated elements
+      animatedElements.forEach((el) => observer.observe(el));
+      
+      // Trigger animations for elements already in viewport on page load
+      setTimeout(() => {
+        animatedElements.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          const isInViewport = (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+          );
+          
+          if (isInViewport || rect.top < window.innerHeight * 0.8) {
+            el.classList.add('visible');
+          }
+        });
+      }, 100);
     });
   </script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <footer class="main-footer">
+    <div class="container py-5">
+      <div class="row gy-4">
+        <!-- Column 1: Contact -->
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-title">Contact Us</h5>
+          <p class="footer-text">
+            info@candlelightspecialneeds.org<br />
+            8B Fola Osibo Rd, Lekki Phase 1, Lagos, Nigeria.<br />
+            Tel: +234 704 532 0659
+          </p>
+          <p class="footer-text mt-3">
+            1603 Capitol Ave Ste 415 #187232, Cheyenne, WY 82001, USA.<br />
+            Tel: +1 307 220 9397
+          </p>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="col-lg-4 col-md-6">
+          <h5 class="footer-title">Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="#">What We Do</a></li>
+            <li><a href="#">Global Initiatives</a></li>
+            <li><a href="#">What is Autism?</a></li>
+            <li><a href="#">What is ADHD?</a></li>
+            <li><a href="#">What is Dyslexia?</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Donate</a></li>
+            <li><a href="#">Volunteer</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Newsletter -->
+        <div class="col-lg-4">
+          <h5 class="footer-title">Stay Connected</h5>
+          <p class="footer-text">
+            To ensure that you receive all the latest updates and events from our
+            organization, subscribe to our mailing list.
+          </p>
+
+          <form class="newsletter-form mt-3">
+            <div class="d-flex gap-2">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Enter your email"
+                required
+              />
+              <button type="submit" class="btn btn-danger">
+                Subscribe
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Legal Disclaimer Bar -->
+    <div class="legal-footer-bar">
+      <div class="container">
+        <p class="legal-footer-text">
+          Candlelight Foundation for Children With Special Needs, Inc. is a
+          registered nonprofit organization recognized as tax-exempt by the United
+          States Internal Revenue Service under Section 501(c)(3) of the Internal
+          Revenue Code (EIN: 33-2403724). The Foundation is also a legally registered
+          nonprofit organization in Nigeria and operates programs supporting
+          children with special needs and their families in both the United States
+          and Nigeria.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    .main-footer {
+      background: #ffffff;
+      color: #111;
+      border-top: 1px solid #e6e6e6;
+    }
+
+    .footer-title {
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: #111;
+    }
+
+    .footer-text {
+      color: #444;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      columns: 2;
+    }
+
+    .footer-links li {
+      margin-bottom: 8px;
+    }
+
+    .footer-links a {
+      color: #444;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+
+    .footer-links a:hover {
+      color: #ff6b6b;
+    }
+
+    .newsletter-form input {
+      background: #fff;
+      border: 1px solid #ccc;
+      color: #111;
+    }
+
+    .newsletter-form input::placeholder {
+      color: #888;
+    }
+
+    /* Legal bar */
+    .legal-footer-bar {
+      border-top: 1px solid #e6e6e6;
+      background: #fafafa;
+      padding: 12px 0;
+    }
+
+    .legal-footer-text {
+      margin: 0;
+      font-size: 0.75rem;
+      line-height: 1.5;
+      color: #555;
+      text-align: center;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
 
   <script src="js/main.js"></script>
 </body>
